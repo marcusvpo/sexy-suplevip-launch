@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Produto from "./pages/Produto";
 import Laudo from "./pages/Laudo";
 import Sobre from "./pages/Sobre";
+import Contato from "./pages/Contato";
 import Termos from "./pages/Termos";
 import Privacidade from "./pages/Privacidade";
 import Trocas from "./pages/Trocas";
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/produto" element={<Produto />} />
           <Route path="/laudo" element={<Laudo />} />
           <Route path="/sobre" element={<Sobre />} />
+          <Route path="/contato" element={<Contato />} />
           <Route path="/termos" element={<Termos />} />
           <Route path="/privacidade" element={<Privacidade />} />
           <Route path="/trocas" element={<Trocas />} />

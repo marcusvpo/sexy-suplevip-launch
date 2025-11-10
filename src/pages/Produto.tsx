@@ -58,21 +58,22 @@ const Produto = () => {
             <div className="grid md:grid-cols-2 gap-8 md:gap-12">
               {/* Left: Product Image */}
               <div className="space-y-4">
-                <div className="bg-muted/30 rounded-2xl p-8 flex items-center justify-center">
+                <div className="bg-muted/30 rounded-2xl p-8 flex items-center justify-center relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-radial opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <img
                     src={productImage}
                     alt="Creatina SupleVip 300g - 100% pura monohidratada micronizada"
-                    className="w-full max-w-md"
+                    className="w-full max-w-md relative z-10 animate-float"
                   />
                 </div>
                 <div className="grid grid-cols-3 gap-3">
-                  <div className="bg-muted/30 rounded-lg p-4 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-primary transition-all">
+                  <div className="bg-muted/30 rounded-lg p-4 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-primary transition-all duration-300 hover:scale-105 hover:shadow-gold">
                     <img src={productImage} alt="Thumbnail 1" className="w-full" />
                   </div>
-                  <div className="bg-muted/30 rounded-lg p-4 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-primary transition-all">
+                  <div className="bg-muted/30 rounded-lg p-4 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-primary transition-all duration-300 hover:scale-105 hover:shadow-gold">
                     <img src={productImage} alt="Thumbnail 2" className="w-full" />
                   </div>
-                  <div className="bg-muted/30 rounded-lg p-4 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-primary transition-all">
+                  <div className="bg-muted/30 rounded-lg p-4 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-primary transition-all duration-300 hover:scale-105 hover:shadow-gold">
                     <img src={productImage} alt="Thumbnail 3" className="w-full" />
                   </div>
                 </div>
@@ -116,10 +117,10 @@ const Produto = () => {
 
                 {/* CTAs */}
                 <div className="space-y-3">
-                  <Button variant="cta" size="xl" className="w-full">
-                    COMPRAR AGORA
+                  <Button variant="cta" size="xl" className="w-full group">
+                    <span className="group-hover:scale-110 inline-block transition-transform">COMPRAR AGORA</span>
                   </Button>
-                  <Button variant="secondary" size="lg" className="w-full">
+                  <Button variant="secondary" size="lg" className="w-full hover:scale-105 transition-all">
                     ADICIONAR AO CARRINHO
                   </Button>
                 </div>

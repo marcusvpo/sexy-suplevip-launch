@@ -21,23 +21,23 @@ const Sobre = () => {
       <div className="min-h-screen flex flex-col">
         <Header />
 
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-12 md:py-16 bg-gradient-section">
           <div className="container max-w-4xl">
-            <div className="text-center mb-12">
-              <Badge variant="gold" className="mb-4">
+            <div className="text-center mb-12 scroll-fade-in">
+              <Badge variant="gold" className="mb-4 animate-pulse-glow">
                 NOSSA HISTÓRIA
               </Badge>
-              <h1 className="text-3xl md:text-5xl font-black mb-4">
-                Quem é a <span className="text-primary">SupleVip</span>
+              <h1 className="text-3xl md:text-5xl font-black mb-4 animate-fade-in-up">
+                Quem é a <span className="text-primary drop-shadow-[0_0_20px_rgba(255,195,0,0.4)]">SupleVip</span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
                 Aqui não tem enrolação, tem resultado com respeito. Fornecemos suplementos com laudo e transparência
                 total.
               </p>
             </div>
 
             {/* Mission */}
-            <Card className="border-border/40 shadow-card mb-8">
+            <Card className="border-border/40 shadow-card mb-8 hover:shadow-gold-strong transition-all duration-500 hover:scale-[1.02]">
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4">
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -56,9 +56,11 @@ const Sobre = () => {
 
             {/* Values */}
             <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <Card className="border-border/40">
+              <Card className="border-border/40 hover:shadow-gold transition-all duration-500 hover:scale-105 group">
                 <CardContent className="pt-6 text-center">
-                  <Shield className="h-10 w-10 text-primary mx-auto mb-3" />
+                  <div className="h-16 w-16 bg-gradient-gold rounded-full flex items-center justify-center mx-auto mb-3 group-hover:animate-pulse-glow">
+                    <Shield className="h-10 w-10 text-black-pure" />
+                  </div>
                   <h3 className="font-bold mb-2">Segurança</h3>
                   <p className="text-sm text-muted-foreground">
                     Todos os produtos testados e com laudo de pureza disponível.
@@ -66,17 +68,21 @@ const Sobre = () => {
                 </CardContent>
               </Card>
 
-              <Card className="border-border/40">
+              <Card className="border-border/40 hover:shadow-gold transition-all duration-500 hover:scale-105 group">
                 <CardContent className="pt-6 text-center">
-                  <Award className="h-10 w-10 text-primary mx-auto mb-3" />
+                  <div className="h-16 w-16 bg-gradient-gold rounded-full flex items-center justify-center mx-auto mb-3 group-hover:animate-pulse-glow">
+                    <Award className="h-10 w-10 text-black-pure" />
+                  </div>
                   <h3 className="font-bold mb-2">Qualidade</h3>
                   <p className="text-sm text-muted-foreground">Pureza comprovada acima de 99% em nossos laudos.</p>
                 </CardContent>
               </Card>
 
-              <Card className="border-border/40">
+              <Card className="border-border/40 hover:shadow-gold transition-all duration-500 hover:scale-105 group">
                 <CardContent className="pt-6 text-center">
-                  <Users className="h-10 w-10 text-primary mx-auto mb-3" />
+                  <div className="h-16 w-16 bg-gradient-gold rounded-full flex items-center justify-center mx-auto mb-3 group-hover:animate-pulse-glow">
+                    <Users className="h-10 w-10 text-black-pure" />
+                  </div>
                   <h3 className="font-bold mb-2">Respeito</h3>
                   <p className="text-sm text-muted-foreground">Transparência com nossos clientes em primeiro lugar.</p>
                 </CardContent>
@@ -101,22 +107,25 @@ const Sobre = () => {
             </div>
 
             {/* CTA */}
-            <div className="bg-secondary text-secondary-foreground rounded-2xl p-8 text-center">
-              <h2 className="text-2xl font-bold mb-3">Veja o Laudo e Comprove</h2>
-              <p className="text-muted-foreground mb-6">
-                Transparência é nosso diferencial. Baixe o certificado de análise e confira a pureza.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Link to="/laudo">
-                  <Button variant="hero" size="lg">
-                    VER LAUDO
-                  </Button>
-                </Link>
-                <Link to="/produto">
-                  <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-black-pure">
-                    COMPRAR CREATINA
-                  </Button>
-                </Link>
+            <div className="bg-secondary text-secondary-foreground rounded-2xl p-8 text-center hover:shadow-gold-strong transition-all duration-500 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-radial opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <h2 className="text-2xl font-bold mb-3">Veja o Laudo e Comprove</h2>
+                <p className="text-muted-foreground mb-6">
+                  Transparência é nosso diferencial. Baixe o certificado de análise e confira a pureza.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Link to="/laudo">
+                    <Button variant="hero" size="lg" className="hover:scale-110 transition-all">
+                      VER LAUDO
+                    </Button>
+                  </Link>
+                  <Link to="/produto">
+                    <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-black-pure hover:scale-110 transition-all">
+                      COMPRAR CREATINA
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

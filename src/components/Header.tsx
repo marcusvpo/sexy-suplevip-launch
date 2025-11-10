@@ -16,28 +16,28 @@ export const Header = () => {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/produto" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link to="/produto" className="text-sm font-medium hover:text-primary transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
             Produtos
           </Link>
-          <Link to="/laudo" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link to="/laudo" className="text-sm font-medium hover:text-primary transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
             Laudo
           </Link>
-          <Link to="/sobre" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link to="/sobre" className="text-sm font-medium hover:text-primary transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
             Sobre
           </Link>
-          <Link to="/contato" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link to="/contato" className="text-sm font-medium hover:text-primary transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
             Contato
           </Link>
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="icon" className="relative">
+          <Button variant="ghost" size="icon" className="relative hover:scale-110 transition-all duration-300">
             <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-primary text-black-pure text-xs flex items-center justify-center font-bold">
+            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-primary text-black-pure text-xs flex items-center justify-center font-bold animate-pulse-glow">
               0
             </span>
           </Button>
-          <Button variant="outline" size="icon" className="md:hidden">
+          <Button variant="outline" size="icon" className="md:hidden hover:scale-110 transition-all">
             <Menu className="h-5 w-5" />
           </Button>
         </div>

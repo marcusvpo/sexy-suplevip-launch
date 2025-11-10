@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import productImage from "@/assets/creatina-product.png";
 import heroLifestyle from "@/assets/hero-lifestyle.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
+import creatinasShowcase from "@/assets/creatinas-showcase.png";
 import { Helmet } from "react-helmet";
 
 const Index = () => {
@@ -212,12 +213,62 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Product Showcase - 3 Creatinas Section */}
+        <section className="py-16 md:py-24 bg-black-midnight relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-radial from-primary/5 to-transparent opacity-30" />
+          <div className="container relative z-10">
+            <div className="text-center mb-12 scroll-fade-in">
+              <Badge variant="gold" className="mb-4 animate-glow">
+                LINHA PREMIUM
+              </Badge>
+              <h2 className="text-3xl md:text-5xl font-black mb-4">
+                Potência <span className="text-primary drop-shadow-[0_0_20px_rgba(255,195,0,0.5)]">Multiplicada</span>
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Qualidade garantida em cada pote. Transparência que você pode comprovar.
+              </p>
+            </div>
+            
+            <div className="max-w-4xl mx-auto scroll-fade-in">
+              <img
+                src={creatinasShowcase}
+                alt="Linha completa SupleVip - 3 potes de creatina 100% pura"
+                className="w-full rounded-2xl shadow-gold-strong hover:scale-105 transition-transform duration-700 hover:shadow-[0_30px_90px_-20px_rgba(255,195,0,0.6)]"
+              />
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 mt-16">
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-gold rounded-full flex items-center justify-center mx-auto mb-4 group-hover:animate-glow">
+                  <Shield className="w-8 h-8 text-black-pure" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Laudo Completo</h3>
+                <p className="text-muted-foreground">Pureza certificada em cada lote</p>
+              </div>
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-gold rounded-full flex items-center justify-center mx-auto mb-4 group-hover:animate-glow">
+                  <Award className="w-8 h-8 text-black-pure" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Premium Quality</h3>
+                <p className="text-muted-foreground">Monohidratada micronizada</p>
+              </div>
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-gold rounded-full flex items-center justify-center mx-auto mb-4 group-hover:animate-glow">
+                  <Package className="w-8 h-8 text-black-pure" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">100 Doses</h3>
+                <p className="text-muted-foreground">Máximo rendimento por pote</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Social Proof - Energia Sexy: Pertencimento + Segurança */}
         <section className="py-16 md:py-24 bg-gradient-section">
           <div className="container">
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 scroll-fade-in">
               <h2 className="text-3xl md:text-5xl font-black mb-4">
-                Clientes <span className="text-primary">Reais</span>
+                Clientes <span className="text-primary drop-shadow-[0_0_20px_rgba(255,195,0,0.4)]">Reais</span>
               </h2>
               <p className="text-lg text-muted-foreground">Resultados comprovados por quem treina sério</p>
             </div>
@@ -240,11 +291,11 @@ const Index = () => {
                   rating: 5,
                 },
               ].map((review, i) => (
-                <Card key={i} className="border-primary/20 bg-card shadow-card hover:shadow-gold hover:border-primary/40 transition-all duration-300 hover:scale-105">
+                <Card key={i} className="border-primary/20 bg-card shadow-card hover:shadow-gold hover:border-primary/40 transition-all duration-500 hover:scale-105 group">
                   <CardContent className="pt-6">
                     <div className="flex gap-1 mb-3">
                       {[...Array(review.rating)].map((_, i) => (
-                        <span key={i} className="text-primary text-lg">
+                        <span key={i} className="text-primary text-lg group-hover:scale-110 inline-block transition-transform duration-300" style={{ transitionDelay: `${i * 50}ms` }}>
                           ★
                         </span>
                       ))}

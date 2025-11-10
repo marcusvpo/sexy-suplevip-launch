@@ -58,6 +58,7 @@ All colors MUST be HSL.
     --gradient-gold: linear-gradient(135deg, hsl(43 100% 45%), hsl(45 100% 51%));
     --gradient-gold-shine: linear-gradient(135deg, hsl(43 100% 45%), hsl(45 100% 60%));
     --gradient-overlay: linear-gradient(180deg, hsl(0 0% 0% / 0.7), hsl(0 0% 0% / 0.9));
+    --gradient-radial: radial-gradient(circle at center, hsl(45 100% 51% / 0.15), transparent 70%);
 
     /* Premium Shadows */
     --shadow-gold: 0 10px 40px -10px hsl(45 100% 51% / 0.4);
