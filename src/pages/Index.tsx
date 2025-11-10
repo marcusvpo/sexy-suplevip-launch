@@ -3,12 +3,13 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/Badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Award, Zap, CheckCircle2, TrendingUp, Star } from "lucide-react";
+import { Shield, Award, Zap, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import productImage from "@/assets/creatina-product.png";
 import showcaseImage from "@/assets/creatinas-showcase.png";
 import { Helmet } from "react-helmet";
+import { SupleVipTestimonials } from "@/components/SupleVipTestimonials";
 
 const Index = () => {
   return (
@@ -295,68 +296,7 @@ const Index = () => {
         {/* Social Proof Section */}
         <section className="py-16 md:py-24 bg-secondary/30">
           <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-black mb-4">
-                Milhares confiam na <span className="text-primary">SupleVip</span>
-              </h2>
-              <p className="text-lg text-muted-foreground">Resultados reais de quem já usa</p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                {
-                  name: "Carlos M.",
-                  role: "Atleta Fitness",
-                  rating: 5,
-                  comment: "Finalmente uma creatina com laudo de verdade. Sinto a diferença nos treinos.",
-                  delay: 0.1,
-                },
-                {
-                  name: "Ana Paula S.",
-                  role: "Personal Trainer",
-                  rating: 5,
-                  comment: "Recomendo para todos os meus alunos. Qualidade premium com preço justo.",
-                  delay: 0.2,
-                },
-                {
-                  name: "Ricardo L.",
-                  role: "Crossfit",
-                  rating: 5,
-                  comment: "100 doses por pote é imbatível. E dissolve perfeitamente!",
-                  delay: 0.3,
-                },
-              ].map((review, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ delay: review.delay, duration: 0.6 }}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                >
-                  <Card className="h-full border-border/40 bg-card/50 backdrop-blur-sm hover:border-primary/30 hover:shadow-gold transition-all duration-300">
-                    <CardContent className="pt-6">
-                      <div className="flex gap-1 mb-4">
-                        {Array.from({ length: review.rating }).map((_, i) => (
-                          <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                        ))}
-                      </div>
-                      <p className="text-foreground mb-6 leading-relaxed">"{review.comment}"</p>
-                      <div className="pt-4 border-t border-border/40">
-                        <p className="font-bold">{review.name}</p>
-                        <p className="text-sm text-muted-foreground">{review.role}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
+            <SupleVipTestimonials />
           </div>
         </section>
 

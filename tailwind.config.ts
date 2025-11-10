@@ -150,6 +150,11 @@ export default {
             boxShadow: "0 0 40px hsl(45 100% 51% / 0.7)",
           },
         },
+        "scroll": {
+          to: {
+            transform: "translate(calc(-100% - 1rem))",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -159,6 +164,7 @@ export default {
         "shimmer": "shimmer 3s linear infinite",
         "float": "float 3s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "scroll": "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
     },
   },
