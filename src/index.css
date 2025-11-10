@@ -8,26 +8,26 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* SupleVip Brand Colors - Black + Gold Premium */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    /* SupleVip Premium - Midnight Black + Premium Gold */
+    --background: 220 15% 5%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    --card: 220 15% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover: 220 15% 8%;
+    --popover-foreground: 0 0% 98%;
 
     /* Primary = Premium Gold */
     --primary: 45 100% 51%;
     --primary-foreground: 0 0% 0%;
 
-    /* Secondary = Black surfaces */
-    --secondary: 0 0% 9%;
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary = Dark surfaces */
+    --secondary: 220 15% 12%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 0 0% 65%;
 
     /* Accent = Gold highlight */
     --accent: 43 100% 49%;
@@ -36,8 +36,8 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
+    --border: 220 15% 20%;
+    --input: 220 15% 15%;
     --ring: 45 100% 51%;
 
     --radius: 0.75rem;
@@ -46,23 +46,29 @@ All colors MUST be HSL.
     --gold: 45 100% 51%;
     --gold-dark: 43 100% 45%;
     --gold-light: 48 100% 88%;
+    --gold-glow: 45 100% 60%;
     --black-pure: 0 0% 0%;
-    --black-soft: 0 0% 9%;
-    --black-overlay: 0 0% 0%;
+    --black-midnight: 220 15% 5%;
+    --black-soft: 220 15% 8%;
+    --gray-dark: 220 10% 15%;
 
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%), hsl(0 0% 12%));
+    /* Premium Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 15% 5%), hsl(220 15% 10%));
+    --gradient-section: linear-gradient(180deg, hsl(220 15% 5%), hsl(220 10% 8%));
     --gradient-gold: linear-gradient(135deg, hsl(43 100% 45%), hsl(45 100% 51%));
+    --gradient-gold-shine: linear-gradient(135deg, hsl(43 100% 45%), hsl(45 100% 60%));
     --gradient-overlay: linear-gradient(180deg, hsl(0 0% 0% / 0.7), hsl(0 0% 0% / 0.9));
 
-    /* Shadows */
-    --shadow-gold: 0 10px 40px -10px hsl(45 100% 51% / 0.3);
-    --shadow-strong: 0 20px 60px -15px hsl(0 0% 0% / 0.4);
-    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.08);
+    /* Premium Shadows */
+    --shadow-gold: 0 10px 40px -10px hsl(45 100% 51% / 0.4);
+    --shadow-gold-strong: 0 20px 60px -15px hsl(45 100% 51% / 0.5);
+    --shadow-strong: 0 20px 60px -15px hsl(0 0% 0% / 0.6);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
 
-    /* Animations */
+    /* Premium Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-glow: all 0.3s ease-in-out;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 0 0% 0%;
@@ -75,23 +81,23 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 0 0% 0%;
+    --background: 220 15% 5%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 9%;
+    --card: 220 15% 8%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 9%;
+    --popover: 220 15% 8%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 45 100% 51%;
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 0 0% 14%;
+    --secondary: 220 15% 12%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 63%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 0 0% 65%;
 
     --accent: 45 100% 51%;
     --accent-foreground: 0 0% 0%;
@@ -99,17 +105,17 @@ All colors MUST be HSL.
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
+    --border: 220 15% 20%;
+    --input: 220 15% 15%;
     --ring: 45 100% 51%;
 
-    --sidebar-background: 0 0% 9%;
+    --sidebar-background: 220 15% 8%;
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 45 100% 51%;
     --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent: 220 15% 12%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 14%;
+    --sidebar-border: 220 15% 20%;
     --sidebar-ring: 45 100% 51%;
   }
 }
@@ -121,5 +127,33 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Premium fade-in animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  /* Scroll-triggered animations */
+  .scroll-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

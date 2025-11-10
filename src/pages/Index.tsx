@@ -28,28 +28,28 @@ const Index = () => {
         <Header />
 
         {/* Hero Section - Energia Sexy: Vaidade + Curiosidade + Segurança */}
-        <section className="relative bg-black-pure text-white overflow-hidden">
+        <section className="relative bg-gradient-hero text-white overflow-hidden">
           <div
-            className="absolute inset-0 opacity-20"
+            className="absolute inset-0 opacity-10"
             style={{
               backgroundImage: `url(${heroBg})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-overlay" />
+          <div className="absolute inset-0 bg-gradient-overlay opacity-60" />
 
           <div className="container relative z-10 py-16 md:py-24">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               {/* Left: Copy */}
-              <div className="space-y-6">
-                <Badge variant="gold" className="mb-2">
+              <div className="space-y-6 animate-fade-in-up">
+                <Badge variant="gold" className="mb-2 animate-glow">
                   PREMIUM QUALITY
                 </Badge>
-                <h1 className="text-4xl md:text-6xl font-black leading-tight">
+                <h1 className="text-4xl md:text-6xl font-black leading-tight scroll-fade-in">
                   CREATINA
                   <br />
-                  <span className="text-primary">MUSCLE PERFORMANCE</span>
+                  <span className="text-primary drop-shadow-[0_0_30px_rgba(255,195,0,0.5)]">MUSCLE PERFORMANCE</span>
                 </h1>
                 <p className="text-xl md:text-2xl font-bold">
                   100% Pura • Monohidratada Micronizada • Rende 100 Doses
@@ -89,12 +89,12 @@ const Index = () => {
               </div>
 
               {/* Right: Product Image */}
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
+              <div className="relative animate-fade-in-up">
+                <div className="absolute inset-0 bg-primary/30 blur-[100px] rounded-full animate-glow" />
                 <img
                   src={productImage}
                   alt="Creatina SupleVip 300g - 100% pura monohidratada micronizada"
-                  className="relative z-10 w-full max-w-md mx-auto drop-shadow-2xl"
+                  className="relative z-10 w-full max-w-md mx-auto drop-shadow-[0_20px_60px_rgba(255,195,0,0.4)] hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </div>
@@ -102,14 +102,14 @@ const Index = () => {
         </section>
 
         {/* Benefits Section - Energia Sexy: Segurança + Vaidade + Recompensa */}
-        <section className="py-16 md:py-24 bg-background">
+        <section className="py-16 md:py-24 bg-gradient-section">
           <div className="container">
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 scroll-fade-in">
               <Badge variant="gold" className="mb-4">
                 POR QUE ESCOLHER SUPLEVIP
               </Badge>
               <h2 className="text-3xl md:text-5xl font-black mb-4">
-                Transparência que <span className="text-primary">Pesa</span>
+                Transparência que <span className="text-primary drop-shadow-[0_0_20px_rgba(255,195,0,0.4)]">Pesa</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Você paga por creatina, não por propaganda. Aqui está a prova real de qualidade.
@@ -118,10 +118,10 @@ const Index = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               {/* Benefit 1: Segurança */}
-              <Card className="border-border/40 shadow-card hover:shadow-strong transition-all duration-300">
+              <Card className="border-primary/20 bg-card shadow-card hover:shadow-gold-strong hover:border-primary/60 transition-all duration-500 hover:scale-105 group">
                 <CardContent className="pt-6">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <Shield className="h-6 w-6 text-primary" />
+                  <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-all duration-300">
+                    <Shield className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">100% Pura e Testada</h3>
                   <p className="text-muted-foreground mb-4">
@@ -134,10 +134,10 @@ const Index = () => {
               </Card>
 
               {/* Benefit 2: Recompensa */}
-              <Card className="border-border/40 shadow-card hover:shadow-strong transition-all duration-300">
+              <Card className="border-primary/20 bg-card shadow-card hover:shadow-gold-strong hover:border-primary/60 transition-all duration-500 hover:scale-105 group">
                 <CardContent className="pt-6">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <TrendingUp className="h-6 w-6 text-primary" />
+                  <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-all duration-300">
+                    <TrendingUp className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">Rende 100 Doses</h3>
                   <p className="text-muted-foreground mb-4">
@@ -148,10 +148,10 @@ const Index = () => {
               </Card>
 
               {/* Benefit 3: Vaidade */}
-              <Card className="border-border/40 shadow-card hover:shadow-strong transition-all duration-300">
+              <Card className="border-primary/20 bg-card shadow-card hover:shadow-gold-strong hover:border-primary/60 transition-all duration-500 hover:scale-105 group">
                 <CardContent className="pt-6">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <Zap className="h-6 w-6 text-primary" />
+                  <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-all duration-300">
+                    <Zap className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">Micronizada</h3>
                   <p className="text-muted-foreground mb-4">
@@ -165,7 +165,7 @@ const Index = () => {
         </section>
 
         {/* Product Highlight - Energia Sexy: Ganância + Urgência */}
-        <section className="py-16 md:py-24 bg-secondary text-secondary-foreground">
+        <section className="py-16 md:py-24 bg-black-midnight text-secondary-foreground">
           <div className="container">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
@@ -213,7 +213,7 @@ const Index = () => {
         </section>
 
         {/* Social Proof - Energia Sexy: Pertencimento + Segurança */}
-        <section className="py-16 md:py-24 bg-background">
+        <section className="py-16 md:py-24 bg-gradient-section">
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-black mb-4">
@@ -240,7 +240,7 @@ const Index = () => {
                   rating: 5,
                 },
               ].map((review, i) => (
-                <Card key={i} className="border-border/40 shadow-card">
+                <Card key={i} className="border-primary/20 bg-card shadow-card hover:shadow-gold hover:border-primary/40 transition-all duration-300 hover:scale-105">
                   <CardContent className="pt-6">
                     <div className="flex gap-1 mb-3">
                       {[...Array(review.rating)].map((_, i) => (
@@ -259,7 +259,7 @@ const Index = () => {
         </section>
 
         {/* CTA Final - Energia Sexy: Ação + Urgência */}
-        <section className="py-16 md:py-20 bg-black-pure text-white relative overflow-hidden">
+        <section className="py-16 md:py-20 bg-gradient-hero text-white relative overflow-hidden">
           <div
             className="absolute inset-0 opacity-10"
             style={{

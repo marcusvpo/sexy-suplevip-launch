@@ -21,7 +21,7 @@ const Laudo = () => {
       <div className="min-h-screen flex flex-col">
         <Header />
 
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-12 md:py-16 bg-gradient-section">
           <div className="container max-w-5xl">
             <div className="text-center mb-12">
               <Badge variant="gold" className="mb-4">
@@ -37,9 +37,9 @@ const Laudo = () => {
             </div>
 
             {/* Certificate Display */}
-            <Card className="border-border/40 shadow-strong mb-8">
+            <Card className="border-primary/20 shadow-gold-strong mb-8 hover:shadow-gold-strong hover:border-primary/40 transition-all duration-500">
               <CardContent className="p-0">
-                <div className="aspect-video bg-muted/20 flex items-center justify-center overflow-hidden">
+                <div className="aspect-video bg-black-soft flex items-center justify-center overflow-hidden">
                   <img
                     src={laudoCert}
                     alt="Certificado de Análise - Creatina SupleVip 300g"
@@ -51,25 +51,25 @@ const Laudo = () => {
 
             {/* Key Metrics */}
             <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <Card className="border-primary/40 bg-primary/5">
+              <Card className="border-primary/40 bg-primary/10 hover:bg-primary/15 transition-all duration-300 hover:scale-105 group">
                 <CardContent className="pt-6 text-center">
-                  <Shield className="h-10 w-10 text-primary mx-auto mb-3" />
+                  <Shield className="h-10 w-10 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
                   <p className="text-sm text-muted-foreground mb-1">Pureza Comprovada</p>
                   <p className="text-3xl font-black text-primary">≥ 99,5%</p>
                 </CardContent>
               </Card>
 
-              <Card className="border-primary/40 bg-primary/5">
+              <Card className="border-primary/40 bg-primary/10 hover:bg-primary/15 transition-all duration-300 hover:scale-105 group">
                 <CardContent className="pt-6 text-center">
-                  <CheckCircle2 className="h-10 w-10 text-primary mx-auto mb-3" />
+                  <CheckCircle2 className="h-10 w-10 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
                   <p className="text-sm text-muted-foreground mb-1">Metais Pesados</p>
                   <p className="text-3xl font-black text-primary">NEGATIVO</p>
                 </CardContent>
               </Card>
 
-              <Card className="border-primary/40 bg-primary/5">
+              <Card className="border-primary/40 bg-primary/10 hover:bg-primary/15 transition-all duration-300 hover:scale-105 group">
                 <CardContent className="pt-6 text-center">
-                  <FileText className="h-10 w-10 text-primary mx-auto mb-3" />
+                  <FileText className="h-10 w-10 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
                   <p className="text-sm text-muted-foreground mb-1">Testes Microbiológicos</p>
                   <p className="text-3xl font-black text-primary">AUSENTE</p>
                 </CardContent>
@@ -77,7 +77,7 @@ const Laudo = () => {
             </div>
 
             {/* Explanation */}
-            <Card className="border-border/40 mb-8">
+            <Card className="border-primary/20 bg-card shadow-card mb-8">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="text-2xl font-bold mb-4">Como Ler o Laudo</h2>
 
