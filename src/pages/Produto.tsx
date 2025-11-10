@@ -1,16 +1,34 @@
+import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/Badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Shield, Award, Package, CheckCircle2, Download, Truck, CreditCard } from "lucide-react";
+import { Shield, Award, Package, CheckCircle2, Download, Truck, CreditCard, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 import productImage from "@/assets/creatina-product.png";
 import laudoCert from "@/assets/laudo-certificate.jpg";
 import { Helmet } from "react-helmet";
+import { useToast } from "@/hooks/use-toast";
 
 const Produto = () => {
+  const [selectedImage, setSelectedImage] = useState(0);
+  const { toast } = useToast();
+  
+  const images = [productImage, productImage, productImage];
+
+  const handleAddToCart = () => {
+    toast({
+      title: "✨ Produto adicionado!",
+      description: "Creatina 300g foi adicionada ao seu carrinho.",
+      duration: 3000,
+    });
+  };
+
   return (
     <>
       <Helmet>
@@ -58,24 +76,43 @@ const Produto = () => {
             <div className="grid md:grid-cols-2 gap-8 md:gap-12">
               {/* Left: Product Image */}
               <div className="space-y-4">
-                <div className="bg-muted/30 rounded-2xl p-8 flex items-center justify-center relative overflow-hidden group">
+                <motion.div
+                  className="bg-muted/30 rounded-2xl p-8 flex items-center justify-center relative overflow-hidden group"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <div className="absolute inset-0 bg-gradient-radial opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <img
-                    src={productImage}
-                    alt="Creatina SupleVip 300g - 100% pura monohidratada micronizada"
-                    className="w-full max-w-md relative z-10 animate-float"
-                  />
-                </div>
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={selectedImage}
+                      src={images[selectedImage]}
+                      alt="Creatina SupleVip 300g - 100% pura monohidratada micronizada"
+                      className="w-full max-w-md relative z-10"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0, rotate: [0, -2, 2, -2, 0] }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                  </AnimatePresence>
+                </motion.div>
                 <div className="grid grid-cols-3 gap-3">
-                  <div className="bg-muted/30 rounded-lg p-4 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-primary transition-all duration-300 hover:scale-105 hover:shadow-gold">
-                    <img src={productImage} alt="Thumbnail 1" className="w-full" />
-                  </div>
-                  <div className="bg-muted/30 rounded-lg p-4 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-primary transition-all duration-300 hover:scale-105 hover:shadow-gold">
-                    <img src={productImage} alt="Thumbnail 2" className="w-full" />
-                  </div>
-                  <div className="bg-muted/30 rounded-lg p-4 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-primary transition-all duration-300 hover:scale-105 hover:shadow-gold">
-                    <img src={productImage} alt="Thumbnail 3" className="w-full" />
-                  </div>
+                  {images.map((img, idx) => (
+                    <motion.div
+                      key={idx}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setSelectedImage(idx)}
+                      className={cn(
+                        "bg-muted/30 rounded-lg p-4 flex items-center justify-center cursor-pointer transition-all duration-300",
+                        selectedImage === idx
+                          ? "ring-2 ring-primary shadow-gold"
+                          : "hover:ring-2 hover:ring-primary/50 hover:shadow-gold"
+                      )}
+                    >
+                      <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full" />
+                    </motion.div>
+                  ))}
                 </div>
               </div>
 
@@ -120,7 +157,13 @@ const Produto = () => {
                   <Button variant="cta" size="xl" className="w-full group">
                     <span className="group-hover:scale-110 inline-block transition-transform">COMPRAR AGORA</span>
                   </Button>
-                  <Button variant="secondary" size="lg" className="w-full hover:scale-105 transition-all">
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    className="w-full hover:scale-105 transition-all"
+                    onClick={handleAddToCart}
+                  >
+                    <ShoppingCart className="h-5 w-5 mr-2" />
                     ADICIONAR AO CARRINHO
                   </Button>
                 </div>
@@ -189,38 +232,126 @@ const Produto = () => {
           </div>
         </section>
 
-        {/* Como Usar */}
+        {/* Como Usar - Tabs Version */}
         <section className="py-12 bg-background">
           <div className="container max-w-4xl">
-            <h2 className="text-2xl md:text-3xl font-black mb-6">Como Usar</h2>
-            <Card className="border-border/40">
-              <CardContent className="pt-6 space-y-4">
-                <div>
-                  <h3 className="font-bold mb-2">Dosagem Recomendada</h3>
-                  <p className="text-muted-foreground">
-                    Use 3 gramas (1 colher medida) por dia, preferencialmente perto do treino. Para iniciantes, comece
-                    com 3g/dia sem fase de carga.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-bold mb-2">Preparo</h3>
-                  <p className="text-muted-foreground">
-                    Misture em água ou bebida de sua preferência. A creatina micronizada dissolve melhor — mexa por
-                    10-15 segundos.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-bold mb-2">Armazenamento</h3>
-                  <p className="text-muted-foreground">
-                    Guarde o produto em local seco e ao abrigo de luz. Evite calor extremo e umidade.
-                  </p>
-                </div>
-                <p className="text-xs text-muted-foreground border-t border-border pt-4 mt-4">
-                  <strong>Importante:</strong> Consulte um profissional de saúde antes de iniciar qualquer
-                  suplementação. Este produto não substitui orientação médica.
-                </p>
-              </CardContent>
-            </Card>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-2xl md:text-3xl font-black mb-6"
+            >
+              Informações Completas
+            </motion.h2>
+            
+            <Tabs defaultValue="uso" className="w-full">
+              <TabsList className="grid w-full grid-cols-3 bg-muted/30">
+                <TabsTrigger value="uso" className="data-[state=active]:bg-primary data-[state=active]:text-black">
+                  Como Usar
+                </TabsTrigger>
+                <TabsTrigger value="beneficios" className="data-[state=active]:bg-primary data-[state=active]:text-black">
+                  Benefícios
+                </TabsTrigger>
+                <TabsTrigger value="detalhes" className="data-[state=active]:bg-primary data-[state=active]:text-black">
+                  Detalhes Técnicos
+                </TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="uso" className="mt-6">
+                <Card className="border-border/40">
+                  <CardContent className="pt-6 space-y-4">
+                    <div>
+                      <h3 className="font-bold mb-2 flex items-center gap-2">
+                        <Package className="h-5 w-5 text-primary" />
+                        Dosagem Recomendada
+                      </h3>
+                      <p className="text-muted-foreground">
+                        Use 3 gramas (1 colher medida) por dia, preferencialmente perto do treino. Para iniciantes,
+                        comece com 3g/dia sem fase de carga.
+                      </p>
+                    </div>
+                    <div>
+                      <h3 className="font-bold mb-2">Preparo</h3>
+                      <p className="text-muted-foreground">
+                        Misture em água ou bebida de sua preferência. A creatina micronizada dissolve melhor — mexa por
+                        10-15 segundos.
+                      </p>
+                    </div>
+                    <div>
+                      <h3 className="font-bold mb-2">Armazenamento</h3>
+                      <p className="text-muted-foreground">
+                        Guarde o produto em local seco e ao abrigo de luz. Evite calor extremo e umidade.
+                      </p>
+                    </div>
+                    <p className="text-xs text-muted-foreground border-t border-border pt-4 mt-4">
+                      <strong>Importante:</strong> Consulte um profissional de saúde antes de iniciar qualquer
+                      suplementação. Este produto não substitui orientação médica.
+                    </p>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
+              <TabsContent value="beneficios" className="mt-6">
+                <Card className="border-border/40">
+                  <CardContent className="pt-6 space-y-4">
+                    <div className="space-y-3">
+                      {[
+                        "Auxilia no aumento de força e potência muscular",
+                        "Contribui para melhor recuperação pós-treino",
+                        "Suporta ganho de massa muscular magra",
+                        "Melhora performance em exercícios de alta intensidade",
+                        "Zero calorias e adequado para diversos protocolos",
+                      ].map((benefit, idx) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: idx * 0.1 }}
+                          className="flex items-start gap-3"
+                        >
+                          <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                          <p className="text-muted-foreground">{benefit}</p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
+              <TabsContent value="detalhes" className="mt-6">
+                <Card className="border-border/40">
+                  <CardContent className="pt-6 space-y-4">
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h4 className="font-bold text-primary mb-1">Peso Líquido</h4>
+                        <p className="text-muted-foreground">300g</p>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-primary mb-1">Rendimento</h4>
+                        <p className="text-muted-foreground">100 doses de 3g</p>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-primary mb-1">Tipo</h4>
+                        <p className="text-muted-foreground">Creatina Monohidratada</p>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-primary mb-1">Pureza</h4>
+                        <p className="text-muted-foreground">≥ 99,5%</p>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-primary mb-1">Processamento</h4>
+                        <p className="text-muted-foreground">Micronizada</p>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-primary mb-1">Qualidade</h4>
+                        <p className="text-muted-foreground">Farmacêutica</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            </Tabs>
           </div>
         </section>
 

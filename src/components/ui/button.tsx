@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
@@ -41,8 +41,45 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
-    return <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />;
+    const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
+    const [isHovering, setIsHovering] = React.useState(false);
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      setMousePosition({
+        x: e.clientX - rect.left - rect.width / 2,
+        y: e.clientY - rect.top - rect.height / 2,
+      });
+    };
+
+    if (asChild) {
+      return (
+        <Slot className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
+      );
+    }
+    
+    const { onAnimationStart, onAnimationEnd, onDrag, onDragEnd, onDragStart, ...restProps } = props as any;
+    
+    return (
+      <motion.button
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+        animate={
+          isHovering
+            ? {
+                x: mousePosition.x * 0.1,
+                y: mousePosition.y * 0.1,
+              }
+            : { x: 0, y: 0 }
+        }
+        transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+        whileTap={{ scale: 0.97 }}
+        {...restProps}
+      />
+    );
   },
 );
 Button.displayName = "Button";
