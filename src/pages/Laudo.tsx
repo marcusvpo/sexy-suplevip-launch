@@ -133,19 +133,6 @@ const Laudo = () => {
                 </div>
               </CardContent>
             </Card>
-
-            {/* Download CTA */}
-            <div className="text-center">
-              <Button variant="cta" size="xl" asChild className="mb-4">
-                <a href="/laudo.pdf" download>
-                  <Download className="h-5 w-5 mr-2" />
-                  BAIXAR PDF DO LAUDO
-                </a>
-              </Button>
-              <p className="text-sm text-muted-foreground">
-                Arquivo PDF oficial do Certificado de Análise. Salve e comprove a qualidade.
-              </p>
-            </div>
           </div>
         </section>
 
