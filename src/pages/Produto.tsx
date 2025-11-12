@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -10,7 +11,10 @@ import { Shield, Award, Package, CheckCircle2, Download, Truck, CreditCard, Shop
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import productImage from "@/assets/creatina-product.png";
+import ResponsiveImage from "@/components/ResponsiveImage";
+import productImageSmall from "@/assets/creatina-product-sm.webp";
+import productImageMedium from "@/assets/creatina-product-md.webp";
+import productImageLarge from "@/assets/creatina-product-lg.webp";
 import laudoCert from "@/assets/laudo-certificate.jpg";
 import { Helmet } from "react-helmet";
 import { useToast } from "@/hooks/use-toast";
@@ -19,7 +23,7 @@ const Produto = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const { toast } = useToast();
   
-  const images = [productImage, productImage, productImage];
+  const images = [productImageLarge, productImageLarge, productImageLarge];
 
   const handleAddToCart = () => {
     toast({
@@ -44,7 +48,7 @@ const Produto = () => {
             "@context": "https://schema.org",
             "@type": "Product",
             name: "Creatina Monohidratada Micronizada 300g - SupleVip",
-            image: productImage,
+            image: productImageLarge,
             description: "Creatina monohidratada micronizada 300g. 100% pura, rendimento de 100 doses (3g/dose).",
             sku: "SV-CR-300",
             brand: { "@type": "Brand", name: "SupleVip" },
@@ -84,16 +88,21 @@ const Produto = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-radial opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <motion.div
                       key={selectedImage}
-                      src={images[selectedImage]}
-                      alt="Creatina SupleVip 300g - 100% pura monohidratada micronizada"
-                      className="w-full max-w-md relative z-10"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0, rotate: [0, -2, 2, -2, 0] }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.5 }}
-                    />
+                    >
+                      <ResponsiveImage
+                        small={productImageSmall}
+                        medium={productImageMedium}
+                        large={images[selectedImage]}
+                        alt="Creatina SupleVip 300g - 100% pura monohidratada micronizada"
+                        className="w-full max-w-md relative z-10"
+                      />
+                    </motion.div>
                   </AnimatePresence>
                 </motion.div>
                 <div className="grid grid-cols-3 gap-3">

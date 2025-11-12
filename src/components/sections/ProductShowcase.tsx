@@ -1,8 +1,12 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/Badge";
 import { Link } from "react-router-dom";
-import showcaseImage from "@/assets/creatinas-showcase.png";
+import ResponsiveImage from "@/components/ResponsiveImage";
+import showcaseImageSmall from "@/assets/creatinas-showcase-sm.webp";
+import showcaseImageMedium from "@/assets/creatinas-showcase-md.webp";
+import showcaseImageLarge from "@/assets/creatinas-showcase-lg.webp";
 import { CheckCircle2, Star } from "lucide-react";
 
 const features = [
@@ -45,8 +49,10 @@ export const ProductShowcase = () => {
             className="relative group"
           >
             <div className="absolute -inset-4 bg-gradient-gold opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500" />
-            <img
-              src={showcaseImage}
+            <ResponsiveImage
+              small={showcaseImageSmall}
+              medium={showcaseImageMedium}
+              large={showcaseImageLarge}
               alt="Linha completa SupleVip Creatina"
               className="w-full rounded-2xl shadow-gold-strong relative z-10 transform group-hover:scale-[1.02] transition-transform duration-500"
             />

@@ -1,8 +1,12 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/Badge";
 import { Link } from "react-router-dom";
-import productImage from "@/assets/creatina-product.png";
+import ResponsiveImage from "@/components/ResponsiveImage";
+import productImageSmall from "@/assets/creatina-product-sm.webp";
+import productImageMedium from "@/assets/creatina-product-md.webp";
+import productImageLarge from "@/assets/creatina-product-lg.webp";
 import { TrustBadges } from "./TrustBadges";
 
 export const HeroSection = () => {
@@ -118,8 +122,10 @@ export const HeroSection = () => {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="relative z-10"
           >
-            <img
-              src={productImage}
+            <ResponsiveImage
+              small={productImageSmall}
+              medium={productImageMedium}
+              large={productImageLarge}
               alt="Creatina SupleVip 300g - 100% pura monohidratada micronizada"
               className="w-full max-w-lg mx-auto drop-shadow-[0_0_50px_rgba(255,195,0,0.3)]"
             />
