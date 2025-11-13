@@ -1,11 +1,11 @@
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Badge } from "@/components/Badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Award, Users, Target } from "lucide-react";
+import { Shield, Award, Users, Target, Download } from "lucide-react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import laudoCert from "@/assets/laudo-certificate.jpg";
 
 const Sobre = () => {
   return (
@@ -17,9 +17,6 @@ const Sobre = () => {
           content="Conheça a SupleVip. Missão: fornecer suplementos puros com laudo de qualidade. Transparência, compromisso e resultados reais."
         />
       </Helmet>
-
-      <div className="min-h-screen flex flex-col">
-        <Header />
 
         <section className="py-12 md:py-16 bg-gradient-section">
           <div className="container max-w-4xl">
@@ -115,11 +112,12 @@ const Sobre = () => {
                   Transparência é nosso diferencial. Baixe o certificado de análise e confira a pureza.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Link to="/laudo">
+                  <a href={laudoCert} download="laudo-suplevip.jpg">
                     <Button variant="hero" size="lg" className="hover:scale-110 transition-all">
-                      VER LAUDO
+                      <Download className="h-4 w-4 mr-2" />
+                      Baixar Laudo Completo
                     </Button>
-                  </Link>
+                  </a>
                   <Link to="/produto">
                     <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-black-pure hover:scale-110 transition-all">
                       COMPRAR CREATINA
@@ -132,7 +130,6 @@ const Sobre = () => {
         </section>
 
         <Footer />
-      </div>
     </>
   );
 };

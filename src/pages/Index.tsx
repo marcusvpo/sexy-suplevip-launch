@@ -1,4 +1,4 @@
-import { Header } from "@/components/Header";
+
 import { Footer } from "@/components/Footer";
 import { Helmet } from "react-helmet";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -23,22 +23,19 @@ const Index = () => {
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <HeroSection />
-        <BenefitsSection />
-        <HowToTakeSection />
-        <ProductShowcase />
-        <QualitySection />
-        
-        {/* Social Proof Section */}
-        <section className="relative">
-          <SupleVipTestimonials />
-        </section>
+      <HeroSection />
+      <BenefitsSection />
+      <HowToTakeSection />
+      <ProductShowcase />
+      <QualitySection />
+      
+      {/* Social Proof Section */}
+      <section className="relative">
+        <SupleVipTestimonials />
+      </section>
 
-        <CTASection />
-        <Footer />
-      </div>
+      <CTASection />
+      <Footer />
     </>
   );
 };

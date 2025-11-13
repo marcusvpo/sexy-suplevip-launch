@@ -1,4 +1,3 @@
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Badge } from "@/components/Badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,9 +16,6 @@ const Laudo = () => {
           content="Certificado de Análise oficial da Creatina SupleVip. Pureza acima de 99,5%, testes microbiológicos OK. Transparência total com laudo disponível."
         />
       </Helmet>
-
-      <div className="min-h-screen flex flex-col">
-        <Header />
 
         <section className="py-12 md:py-16 bg-gradient-section">
           <div className="container max-w-5xl">
@@ -48,6 +44,15 @@ const Laudo = () => {
                 </div>
               </CardContent>
             </Card>
+
+            <div className="text-center mb-12">
+              <Button variant="hero" size="lg" asChild>
+                <a href={laudoCert} download="laudo-suplevip.jpg">
+                  <Download className="h-4 w-4 mr-2" />
+                  Baixar Laudo Completo
+                </a>
+              </Button>
+            </div>
 
             {/* Key Metrics */}
             <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -137,7 +142,6 @@ const Laudo = () => {
         </section>
 
         <Footer />
-      </div>
     </>
   );
 };

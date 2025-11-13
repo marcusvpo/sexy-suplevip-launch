@@ -1,4 +1,3 @@
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
@@ -6,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Trash2, ShoppingCart } from 'lucide-react';
 import { useCart } from "@/contexts/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
+import creatinaProduct from '@/assets/creatina-product.png';
 
 const Cart = () => {
   const { cartItems, updateQuantity, removeFromCart } = useCart();
@@ -26,7 +26,6 @@ const Cart = () => {
         <title>Meu Carrinho | SupleVip</title>
       </Helmet>
       <div className="min-h-screen flex flex-col bg-background">
-        <Header />
         <main className="flex-grow container py-8 md:py-12">
           <div className="text-center mb-10">
             <h1 className="text-3xl md:text-4xl font-black text-foreground">Seu Carrinho</h1>
@@ -57,10 +56,13 @@ const Cart = () => {
                       className="flex items-center justify-between bg-card p-4 rounded-lg border"
                     >
                       <div className="flex items-center gap-4 flex-grow">
-                        <img src={item.image} alt={item.name} className="w-20 h-20 rounded-md object-cover" />
+                        <img src={creatinaProduct} alt={item.name} className="w-20 h-20 rounded-md object-cover" />
                         <div className="flex-grow">
                           <h3 className="font-bold text-lg">{item.name}</h3>
-                          <p className="text-primary font-semibold text-lg">R$ {item.price.toFixed(2).replace('.', ',')}</p>
+                          <div className="flex items-center gap-2">
+                            <p className="text-muted-foreground line-through">R$ 179,90</p>
+                            <p className="text-primary font-semibold text-lg">R$ {item.price.toFixed(2).replace('.', ',')}</p>
+                          </div>
                         </div>
                       </div>
                       <div className="flex items-center gap-3 md:gap-4">

@@ -1,4 +1,3 @@
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,7 +38,6 @@ const Contato = () => {
         />
       </Helmet>
       <div className="min-h-screen bg-gradient-section">
-        <Header />
         
         {/* Hero Section */}
         <section className="pt-24 pb-16 px-4 scroll-fade-in" ref={(el) => el && (sectionsRef.current[0] = el)}>

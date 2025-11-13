@@ -42,15 +42,16 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const addToCart = (product: Product) => {
+    const productWithCorrectImage = { ...product, image: 'creatina-product.png' };
     setCartItems(prevItems => {
-      const existingItem = prevItems.find(item => item.id === product.id);
+      const existingItem = prevItems.find(item => item.id === productWithCorrectImage.id);
       let newItems;
       if (existingItem) {
         newItems = prevItems.map(item =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === productWithCorrectImage.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       } else {
-        newItems = [...prevItems, { ...product, quantity: 1 }];
+        newItems = [...prevItems, { ...productWithCorrectImage, quantity: 1 }];
       }
       updateLocalStorage(newItems);
       return newItems;

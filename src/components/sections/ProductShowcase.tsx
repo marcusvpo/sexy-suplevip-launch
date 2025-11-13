@@ -5,7 +5,7 @@ import { Badge } from "@/components/Badge";
 import { Link } from "react-router-dom";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import showcaseImage from "@/assets/creatinas-showcase.webp";
-import { CheckCircle2, Star } from "lucide-react";
+import { CheckCircle2, Star, TrendingUp } from "lucide-react";
 
 const features = [
   "✓ Creatina Monohidratada 100% Pura",
@@ -90,16 +90,36 @@ export const ProductShowcase = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
+              className="border-t border-dashed border-zinc-300 dark:border-zinc-700 pt-6 space-y-5"
             >
-              <Button variant="cta" size="lg" asChild className="group">
+              <div className="bg-zinc-100 dark:bg-zinc-800 rounded-xl p-5 border border-zinc-200 dark:border-zinc-700 shadow-sm">
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-col">
+                    <span className="text-sm text-zinc-500 line-through">De R$ 179,90</span>
+                    <span className="text-4xl font-black text-zinc-900 dark:text-white">Por R$ 149,90</span>
+                    <span className="text-primary font-semibold">ou 3x de R$ 49,99 sem juros</span>
+                  </div>
+                  <div className="text-center">
+                    <Badge variant="destructive" className="mb-1 animate-pulse">
+                      OFERTA LIMITADA
+                    </Badge>
+                    <div className="flex items-center gap-2 text-sm text-zinc-500">
+                      <TrendingUp className="w-4 h-4"/>
+                      <span>Últimas Unidades!</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <Button variant="cta" size="xl" asChild className="w-full group text-center">
                 <Link to="/produto">
                   <span className="group-hover:scale-110 inline-block transition-transform">
                     GARANTIR MINHA CREATINA
                   </span>
                 </Link>
               </Button>
-              <div className="flex items-center gap-2">
+
+              <div className="flex items-center justify-center gap-2">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-primary text-primary" />
@@ -110,6 +130,7 @@ export const ProductShowcase = () => {
                 </span>
               </div>
             </motion.div>
+
           </motion.div>
         </motion.div>
       </div>

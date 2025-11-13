@@ -1,7 +1,5 @@
 
 import { useState } from "react";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/Badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,11 +10,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import ResponsiveImage from "@/components/ResponsiveImage";
-import productImage from "@/assets/creatina-product.webp";
+import productImage from "@/assets/creatina-product.png";
+import poteBancada from "@/assets/pote bancada.webp";
+import poteBraco from "@/assets/pote braco.webp";
 import laudoCert from "@/assets/laudo-certificate.jpg";
 import { Helmet } from "react-helmet";
 import { useToast } from "@/hooks/use-toast";
 import { useCart } from "@/contexts/CartContext";
+import MercadoPagoCard from "@/components/MercadoPagoCard";
+import { Footer } from "@/components/Footer";
 
 const Produto = () => {
   const [selectedImage, setSelectedImage] = useState(0);
@@ -24,12 +26,12 @@ const Produto = () => {
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
-  const images = [productImage, productImage, productImage];
+  const images = [productImage, poteBancada, poteBraco];
 
   const product = {
     id: "creatina-300g",
     name: "Creatina Monohidratada 300g",
-    price: 89.90,
+    price: 149.90,
     image: "/creatina.png",
   };
 
@@ -69,15 +71,12 @@ const Produto = () => {
             offers: {
               "@type": "Offer",
               priceCurrency: "BRL",
-              price: "89.90",
+              price: "149.90",
               availability: "https://schema.org/InStock",
             },
           })}
         </script>
       </Helmet>
-
-      <div className="min-h-screen flex flex-col">
-        <Header />
 
         {/* Breadcrumbs */}
         <div className="container py-4 text-sm text-muted-foreground">
@@ -89,18 +88,18 @@ const Produto = () => {
         </div>
 
         {/* Product Hero - 2 Columns */}
-        <section className="py-8 md:py-12 bg-background">
+        <section className="py-8 md:py-12 bg-white">
           <div className="container">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12">
               {/* Left: Product Image */}
               <div className="space-y-4">
                 <motion.div
-                  className="bg-muted/30 rounded-2xl p-8 flex items-center justify-center relative overflow-hidden group"
+                  className="bg-gray-100 rounded-2xl p-8 flex items-center justify-center relative overflow-hidden group"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <div className="absolute inset-0 bg-gradient-radial opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-radial from-transparent to-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={selectedImage}
@@ -108,13 +107,14 @@ const Produto = () => {
                       animate={{ opacity: 1, y: 0, rotate: [0, -2, 2, -2, 0] }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.5 }}
+                      className="transform transition-transform duration-500 ease-in-out group-hover:scale-125"
                     >
                       <ResponsiveImage
-                        small={productImage}
-                        medium={productImage}
+                        small={images[selectedImage]}
+                        medium={images[selectedImage]}
                         large={images[selectedImage]}
                         alt="Creatina SupleVip 300g - 100% pura monohidratada micronizada"
-                        className="w-full max-w-md relative z-10"
+                        className={cn("w-full max-w-md relative z-10", selectedImage !== 0 && "scale-125")}
                       />
                     </motion.div>
                   </AnimatePresence>
@@ -127,10 +127,10 @@ const Produto = () => {
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setSelectedImage(idx)}
                       className={cn(
-                        "bg-muted/30 rounded-lg p-4 flex items-center justify-center cursor-pointer transition-all duration-300",
+                        "bg-gray-100 rounded-lg p-4 flex items-center justify-center cursor-pointer transition-all duration-300",
                         selectedImage === idx
-                          ? "ring-2 ring-primary shadow-gold"
-                          : "hover:ring-2 hover:ring-primary/50 hover:shadow-gold"
+                          ? "ring-2 ring-primary shadow-lg"
+                          : "hover:ring-2 hover:ring-primary/50"
                       )}
                     >
                       <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full" />
@@ -145,35 +145,37 @@ const Produto = () => {
                   <Badge variant="gold" className="mb-2">
                     LAUDO 100% PURO
                   </Badge>
-                  <h1 className="text-3xl md:text-4xl font-black mb-2">CREATINA — Muscle Performance</h1>
-                  <p className="text-lg text-muted-foreground">100% Pura • Monohidratada • Micronizada</p>
+                  <h1 className="text-3xl md:text-4xl font-black mb-2 text-gray-900">CREATINA — Muscle Performance</h1>
+                  <p className="text-lg text-gray-500">100% Pura • Monohidratada • Micronizada</p>
                 </div>
 
                 {/* Badges */}
                 <div className="flex flex-wrap gap-3">
-                  <Badge variant="outline">
-                    <Shield className="h-3 w-3 mr-1" />
+                  <Badge variant="outline" className="border-gray-300 text-gray-600">
+                    <Shield className="h-3 w-3 mr-1 text-primary" />
                     Laudo Disponível
                   </Badge>
-                  <Badge variant="outline">
-                    <Award className="h-3 w-3 mr-1" />
+                  <Badge variant="outline" className="border-gray-300 text-gray-600">
+                    <Award className="h-3 w-3 mr-1 text-primary" />
                     Zero Calorias
                   </Badge>
-                  <Badge variant="outline">
-                    <Package className="h-3 w-3 mr-1" />
+                  <Badge variant="outline" className="border-gray-300 text-gray-600">
+                    <Package className="h-3 w-3 mr-1 text-primary" />
                     Rende 100 Doses
                   </Badge>
                 </div>
 
                 {/* Price */}
-                <div className="border-t border-b border-border py-4">
+                <div className="border-t border-b border-gray-200 py-4">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-black">R$ 89,90</span>
-                    <span className="text-sm text-muted-foreground line-through">R$ 119,90</span>
+                    <span className="text-4xl font-black text-gray-900">R$ 149,90</span>
+                    <span className="text-sm text-gray-500 line-through">R$ 179,90</span>
                   </div>
-                  <p className="text-sm text-primary font-semibold mt-1">ou 3x de R$ 29,97 sem juros</p>
-                  <p className="text-xs text-muted-foreground mt-2">3g por dose — rende 100 doses</p>
+                  <p className="text-sm text-primary font-semibold mt-1">ou 3x de R$ 49,99 sem juros</p>
+                  <p className="text-xs text-gray-500 mt-2">3g por dose — rende 100 doses</p>
                 </div>
+
+                <MercadoPagoCard />
 
                 {/* CTAs */}
                 <div className="space-y-3">
@@ -183,7 +185,7 @@ const Produto = () => {
                   <Button
                     variant="secondary"
                     size="lg"
-                    className="w-full hover:scale-105 transition-all"
+                    className="w-full hover:scale-105 transition-all bg-gray-200 text-gray-800 hover:bg-gray-300"
                     onClick={handleAddToCart}
                   >
                     <ShoppingCart className="h-5 w-5 mr-2" />
@@ -192,7 +194,7 @@ const Produto = () => {
                 </div>
 
                 {/* Trust Signals */}
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-sm text-gray-600">
                   <div className="flex items-center gap-2">
                     <Truck className="h-4 w-4 text-primary" />
                     <span>Frete grátis acima de R$ 199</span>
@@ -416,9 +418,9 @@ const Produto = () => {
                     </div>
                   </div>
                   <Button variant="outline" className="w-full" asChild>
-                    <a href="/laudo.pdf" download>
+                    <a href={laudoCert} download="laudo-suplevip.jpg">
                       <Download className="h-4 w-4 mr-2" />
-                      BAIXAR PDF DO LAUDO
+                      Baixar Laudo Completo
                     </a>
                   </Button>
                   <p className="text-xs text-muted-foreground">
@@ -479,7 +481,6 @@ const Produto = () => {
         </section>
 
         <Footer />
-      </div>
     </>
   );
 };
