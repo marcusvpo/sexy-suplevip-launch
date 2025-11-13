@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/Badge";
 import { Link } from "react-router-dom";
 import ResponsiveImage from "@/components/ResponsiveImage";
-import showcaseImage from "@/assets/creatinas-showcase.webp";
+import showcaseImageWebp from "@/assets/creatinas-showcase.webp";
+import showcaseImagePng from "@/assets/creatinas-showcase.png";
 import { CheckCircle2, Star, TrendingUp } from "lucide-react";
 
 const features = [
@@ -36,11 +37,16 @@ export const ProductShowcase = () => {
           >
             <div className="absolute -inset-4 bg-gradient-gold opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500" />
             <ResponsiveImage
-              small={showcaseImage}
-              medium={showcaseImage}
-              large={showcaseImage}
+              small={showcaseImageWebp}
+              medium={showcaseImageWebp}
+              large={showcaseImageWebp}
               alt="Linha completa SupleVip Creatina"
               className="w-full rounded-2xl shadow-gold-strong relative z-10 transform group-hover:scale-[1.02] transition-transform duration-500"
+            />
+            <img 
+              src={showcaseImagePng} 
+              alt="Linha completa SupleVip Creatina - Fallback" 
+              style={{ display: 'none' }}
             />
           </motion.div>
 
@@ -100,7 +106,7 @@ export const ProductShowcase = () => {
                     <span className="text-primary font-semibold">ou 3x de R$ 49,99 sem juros</span>
                   </div>
                   <div className="text-center">
-                    <Badge variant="destructive" className="mb-1 animate-pulse">
+                    <Badge variant="gold" className="mb-1 animate-pulse">
                       OFERTA LIMITADA
                     </Badge>
                     <div className="flex items-center gap-2 text-sm text-zinc-500">
