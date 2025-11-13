@@ -1,6 +1,6 @@
 
 import { Truck, Zap, CheckCircle, RefreshCw, MessageSquare, Clock } from 'lucide-react';
-import mpLogo from '@/assets/mp logo.png';
+import mpLogo from '@/assets/mp-logo.png';
 import { useTimer } from '@/contexts/TimerContext';
 
 const MercadoPagoCard = () => {
