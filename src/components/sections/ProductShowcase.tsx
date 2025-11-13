@@ -4,9 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/Badge";
 import { Link } from "react-router-dom";
 import ResponsiveImage from "@/components/ResponsiveImage";
-import showcaseImageSmall from "@/assets/creatinas-showcase-sm.webp";
-import showcaseImageMedium from "@/assets/creatinas-showcase-md.webp";
-import showcaseImageLarge from "@/assets/creatinas-showcase-lg.webp";
+import showcaseImage from "@/assets/creatinas-showcase.webp";
 import { CheckCircle2, Star } from "lucide-react";
 
 const features = [
@@ -20,19 +18,7 @@ const features = [
 
 export const ProductShowcase = () => {
   return (
-    <section className="py-16 md:py-24 bg-background relative overflow-hidden">
-      <motion.div
-        className="absolute inset-0 opacity-20"
-        animate={{
-          background: [
-            "radial-gradient(circle at 0% 0%, hsl(45 100% 51% / 0.1) 0%, transparent 50%)",
-            "radial-gradient(circle at 100% 100%, hsl(45 100% 51% / 0.1) 0%, transparent 50%)",
-            "radial-gradient(circle at 0% 0%, hsl(45 100% 51% / 0.1) 0%, transparent 50%)",
-          ],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-      />
-
+    <section className="relative py-16 md:py-24 bg-white dark:bg-zinc-900 text-black dark:text-white overflow-hidden">
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -50,9 +36,9 @@ export const ProductShowcase = () => {
           >
             <div className="absolute -inset-4 bg-gradient-gold opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500" />
             <ResponsiveImage
-              small={showcaseImageSmall}
-              medium={showcaseImageMedium}
-              large={showcaseImageLarge}
+              small={showcaseImage}
+              medium={showcaseImage}
+              large={showcaseImage}
               alt="Linha completa SupleVip Creatina"
               className="w-full rounded-2xl shadow-gold-strong relative z-10 transform group-hover:scale-[1.02] transition-transform duration-500"
             />
@@ -75,7 +61,7 @@ export const ProductShowcase = () => {
                   Você Pode Comprovar
                 </span>
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              <p className="text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed mb-6">
                 Cada pote SupleVip vem com certificado de análise laboratorial. Sem mistério, sem enrolação. 
                 Apenas creatina pura, testada e pronta para entregar os resultados que você merece.
               </p>
@@ -89,9 +75,9 @@ export const ProductShowcase = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 + idx * 0.1, duration: 0.4 }}
-                  className="flex items-center gap-3 text-foreground"
+                  className="flex items-center gap-3"
                 >
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                     <CheckCircle2 className="w-4 h-4 text-primary" />
                   </div>
                   <span className="text-base font-medium">{feature}</span>
@@ -119,8 +105,8 @@ export const ProductShowcase = () => {
                     <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                   ))}
                 </div>
-                <span className="text-sm text-muted-foreground">
-                  <strong className="text-foreground">4.9/5</strong> (2.847 avaliações)
+                <span className="text-sm text-zinc-500">
+                  <strong>4.9/5</strong> (2.847 avaliações)
                 </span>
               </div>
             </motion.div>

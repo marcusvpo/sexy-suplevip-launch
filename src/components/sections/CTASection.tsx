@@ -25,37 +25,7 @@ const urgencyPoints = [
 
 export const CTASection = () => {
   return (
-    <section className="py-20 md:py-32 bg-gradient-section relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-radial opacity-30" />
-
-      {/* Floating animated elements */}
-      <motion.div
-        className="absolute top-10 left-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl"
-        animate={{
-          y: [0, -30, 0],
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-10 right-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl"
-        animate={{
-          y: [0, 30, 0],
-          scale: [1.2, 1, 1.2],
-          opacity: [0.6, 0.3, 0.6],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
+    <section className="py-20 md:py-32 bg-black text-white relative overflow-hidden">
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -94,7 +64,7 @@ export const CTASection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
+            className="text-xl md:text-2xl text-zinc-300 max-w-2xl mx-auto"
           >
             Junte-se a <strong className="text-primary">+50.000 atletas</strong> que já conquistaram resultados reais 
             com a creatina mais pura e transparente do Brasil
@@ -134,7 +104,7 @@ export const CTASection = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 + idx * 0.1, duration: 0.4 }}
-                className="flex flex-col items-center gap-2 text-sm bg-card/30 backdrop-blur-sm p-4 rounded-xl border border-border/30"
+                className="flex flex-col items-center gap-2 text-sm bg-zinc-800/50 backdrop-blur-sm p-4 rounded-xl border border-zinc-700"
               >
                 <point.icon className="h-6 w-6 text-primary" />
                 <span className="text-center font-medium">{point.text}</span>
@@ -147,7 +117,7 @@ export const CTASection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 1, duration: 0.6 }}
-            className="text-sm text-muted-foreground pt-4"
+            className="text-sm text-zinc-500 pt-4"
           >
             * Frete grátis para compras acima de R$ 150 | Parcelamento em até 3x sem juros no cartão
           </motion.p>

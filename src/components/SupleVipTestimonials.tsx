@@ -5,11 +5,11 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 export function SupleVipTestimonials() {
   return (
-    <div className="h-[30rem] w-full rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden dark:bg-black">
-      <h2 className="text-3xl font-bold text-center mb-8 dark:text-white">
+    <div className="h-[25rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+      <h2 className="text-3xl font-bold text-center mb-8 text-black dark:text-white">
         Milhares confiam na SupleVip
         <br />
-        <span className="text-lg font-normal text-neutral-500 dark:text-neutral-400">Resultados reais de quem já usa</span>
+        <span className="text-lg font-normal text-zinc-600 dark:text-zinc-400">Resultados reais de quem já usa</span>
       </h2>
       <InfiniteMovingCards
         items={testimonials}

@@ -12,9 +12,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import ResponsiveImage from "@/components/ResponsiveImage";
-import productImageSmall from "@/assets/creatina-product-sm.webp";
-import productImageMedium from "@/assets/creatina-product-md.webp";
-import productImageLarge from "@/assets/creatina-product-lg.webp";
+import productImage from "@/assets/creatina-product.webp";
 import laudoCert from "@/assets/laudo-certificate.jpg";
 import { Helmet } from "react-helmet";
 import { useToast } from "@/hooks/use-toast";
@@ -23,7 +21,7 @@ const Produto = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const { toast } = useToast();
   
-  const images = [productImageLarge, productImageLarge, productImageLarge];
+  const images = [productImage, productImage, productImage];
 
   const handleAddToCart = () => {
     toast({
@@ -48,7 +46,7 @@ const Produto = () => {
             "@context": "https://schema.org",
             "@type": "Product",
             name: "Creatina Monohidratada Micronizada 300g - SupleVip",
-            image: productImageLarge,
+            image: productImage,
             description: "Creatina monohidratada micronizada 300g. 100% pura, rendimento de 100 doses (3g/dose).",
             sku: "SV-CR-300",
             brand: { "@type": "Brand", name: "SupleVip" },
@@ -96,8 +94,8 @@ const Produto = () => {
                       transition={{ duration: 0.5 }}
                     >
                       <ResponsiveImage
-                        small={productImageSmall}
-                        medium={productImageMedium}
+                        small={productImage}
+                        medium={productImage}
                         large={images[selectedImage]}
                         alt="Creatina SupleVip 300g - 100% pura monohidratada micronizada"
                         className="w-full max-w-md relative z-10"

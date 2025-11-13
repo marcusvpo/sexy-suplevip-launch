@@ -3,136 +3,83 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/Badge";
 import { Link } from "react-router-dom";
-import ResponsiveImage from "@/components/ResponsiveImage";
-import productImageSmall from "@/assets/creatina-product-sm.webp";
-import productImageMedium from "@/assets/creatina-product-md.webp";
-import productImageLarge from "@/assets/creatina-product-lg.webp";
-import { TrustBadges } from "./TrustBadges";
+import backgroundImage from "@/assets/hero-bg.jpg";
+import { Zap, RefreshCw, Star } from 'lucide-react';
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Animated Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-hero">
-        <motion.div
-          className="absolute inset-0 opacity-30"
-          animate={{
-            background: [
-              "radial-gradient(circle at 20% 50%, hsl(45 100% 51% / 0.15) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 50%, hsl(45 100% 51% / 0.15) 0%, transparent 50%)",
-              "radial-gradient(circle at 20% 50%, hsl(45 100% 51% / 0.15) 0%, transparent 50%)",
-            ],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
+    <section
+      className="relative min-h-screen flex flex-col justify-around items-center overflow-hidden text-white text-center"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="absolute inset-0 bg-black/60 z-0" />
 
-      <div className="container relative z-10 grid lg:grid-cols-2 gap-12 items-center py-20">
-        {/* Left Column - Content */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-8 text-center lg:text-left"
+      <motion.div
+        className="container relative z-10"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <div className="flex justify-center gap-3 mb-4">
+            <Badge variant="outline">BEST DEAL</Badge>
+            <Badge variant="gold">PREMIUM QUALITY</Badge>
+        </div>
+        <h1
+          className="text-4xl md:text-5xl font-black leading-tight text-white"
+          style={{ textShadow: "0px 0px 15px rgba(255, 223, 0, 0.4)" }}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            <Badge variant="gold" className="mb-4 animate-pulse-glow">
-              LAUDO 100% PURO
-            </Badge>
-          </motion.div>
+          SUPLEVIP CREATINA:
+          <br />
+          <span className="text-yellow-400">A FORÇA E A PUREZA QUE VOCÊ EXIGE.</span>
+        </h1>
+        <h2
+          className="text-lg md:text-xl text-zinc-200 mt-4 max-w-2xl mx-auto"
+        >
+            100% Pura Monohidratada Micronizada. Performance Superior, Resultados Reais.
+        </h2>
+      </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-5xl md:text-7xl font-black leading-tight"
-          >
-            TRANSFORME SEU CORPO
-            <br />
-            <span className="bg-gradient-gold-shine bg-clip-text text-transparent">
-              COM PUREZA COMPROVADA
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-xl md:text-2xl text-muted-foreground"
-          >
-            A creatina que entrega resultados reais.
-            <br />
-            <span className="text-primary font-bold">Sinta a diferença em 30 dias ou seu dinheiro de volta</span>
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-          >
+      <motion.div
+        className="container relative z-10 space-y-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+      >
+        <div className="flex flex-col items-center space-y-4">
             <Button
               variant="hero"
               size="xl"
               asChild
-              className="group relative overflow-hidden"
+              className="group relative overflow-hidden bg-yellow-400 text-black hover:bg-yellow-500"
             >
               <Link to="/produto">
-                <span className="relative z-10 font-black">QUERO MINHA TRANSFORMAÇÃO AGORA</span>
-                <motion.div
-                  className="absolute inset-0 bg-gold-glow"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.6 }}
-                />
+                <span className="relative z-10 font-black text-lg">
+                  COMPRAR AGORA E TRANSFORMAR!
+                </span>
               </Link>
             </Button>
-            <Button variant="outline" size="xl" asChild>
-              <Link to="/laudo">VER LAUDO DE PUREZA</Link>
-            </Button>
-          </motion.div>
-
-          {/* Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-          >
-            <TrustBadges />
-          </motion.div>
-        </motion.div>
-
-        {/* Right Column - Product Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-          className="relative"
-        >
-          <motion.div
-            animate={{ y: [0, -20, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="relative z-10"
-          >
-            <ResponsiveImage
-              small={productImageSmall}
-              medium={productImageMedium}
-              large={productImageLarge}
-              alt="Creatina SupleVip 300g - 100% pura monohidratada micronizada"
-              className="w-full max-w-lg mx-auto drop-shadow-[0_0_50px_rgba(255,195,0,0.3)]"
-            />
-          </motion.div>
-          <div className="absolute inset-0 bg-gradient-radial blur-3xl opacity-40 animate-pulse-glow" />
-        </motion.div>
-      </div>
+            <p className="text-sm text-zinc-300">Frete Grátis para todo o Brasil</p>
+        </div>
+        
+        <div className="flex justify-center items-center gap-4 md:gap-8 text-sm">
+            <div className="flex items-center gap-2">
+                <Zap size={18} className="text-yellow-400" />
+                <span>Aumento de Força</span>
+            </div>
+            <div className="flex items-center gap-2">
+                <RefreshCw size={18} className="text-yellow-400" />
+                <span>Recuperação Rápida</span>
+            </div>
+            <div className="flex items-center gap-2">
+                <Star size={18} className="text-yellow-400" />
+                <span>Massa Muscular</span>
+            </div>
+        </div>
+      </motion.div>
     </section>
   );
 };

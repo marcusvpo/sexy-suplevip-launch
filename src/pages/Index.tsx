@@ -28,7 +28,7 @@ const Index = () => {
         <ProductShowcase />
         
         {/* Social Proof Section */}
-        <section className="py-16 md:py-24 bg-secondary/30">
+        <section className="relative py-16 md:py-24 bg-white dark:bg-black">
           <div className="container">
             <SupleVipTestimonials />
           </div>
