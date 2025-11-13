@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { Droplet, Clock, Repeat } from 'lucide-react';
-import howToTakeImage from "@/assets/pote supino aberto.webp";
+import howToTakeImage from "@/assets/pote-supino-aberto.webp";
 
 export const HowToTakeSection = () => {
   return (

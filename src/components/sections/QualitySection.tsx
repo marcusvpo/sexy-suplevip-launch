@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
-import qualityImage from '@/assets/pote maquinas.webp';
+import qualityImage from '@/assets/pote-maquinas.webp';
 
 export const QualitySection = () => {
   const features = [
