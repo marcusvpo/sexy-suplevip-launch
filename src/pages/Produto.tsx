@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Shield, Award, Package, CheckCircle2, Download, Truck, CreditCard, ShoppingCart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import ResponsiveImage from "@/components/ResponsiveImage";
@@ -16,20 +16,36 @@ import productImage from "@/assets/creatina-product.webp";
 import laudoCert from "@/assets/laudo-certificate.jpg";
 import { Helmet } from "react-helmet";
 import { useToast } from "@/hooks/use-toast";
+import { useCart } from "@/contexts/CartContext";
 
 const Produto = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const { toast } = useToast();
-  
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
+
   const images = [productImage, productImage, productImage];
 
+  const product = {
+    id: "creatina-300g",
+    name: "Creatina Monohidratada 300g",
+    price: 89.90,
+    image: "/creatina.png",
+  };
+
   const handleAddToCart = () => {
+    addToCart(product);
     toast({
       title: "✨ Produto adicionado!",
       description: "Creatina 300g foi adicionada ao seu carrinho.",
       duration: 3000,
     });
   };
+
+  const handleBuyNow = () => {
+    addToCart(product);
+    navigate("/cart");
+  }
 
   return (
     <>
@@ -161,7 +177,7 @@ const Produto = () => {
 
                 {/* CTAs */}
                 <div className="space-y-3">
-                  <Button variant="cta" size="xl" className="w-full group">
+                  <Button variant="cta" size="xl" className="w-full group" onClick={handleBuyNow}>
                     <span className="group-hover:scale-110 inline-block transition-transform">COMPRAR AGORA</span>
                   </Button>
                   <Button

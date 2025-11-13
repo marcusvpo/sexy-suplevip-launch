@@ -1,21 +1,26 @@
-"use client";
+'use client';
 
-import React from "react";
-import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import React from 'react';
+import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards';
+import { Badge } from '@/components/Badge';
 
 export function SupleVipTestimonials() {
   return (
-    <div className="h-[25rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-      <h2 className="text-3xl font-bold text-center mb-8 text-black dark:text-white">
-        Milhares confiam na SupleVip
-        <br />
-        <span className="text-lg font-normal text-zinc-600 dark:text-zinc-400">Resultados reais de quem já usa</span>
-      </h2>
-      <InfiniteMovingCards
-        items={testimonials}
-        direction="right"
-        speed="slow"
-      />
+    <div className="bg-black h-[30rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-black text-white">
+          Resultados Que Falam Por Si
+        </h2>
+        <p className="text-lg md:text-xl text-zinc-400 mt-2">
+          Veja o que nossos clientes estão dizendo sobre a Creatina SupleVIP.
+        </p>
+        <div className="flex justify-center gap-2 mt-4">
+          <Badge variant="gold">Compra Segura</Badge>
+          <Badge variant="gold">Entrega Rápida</Badge>
+          <Badge variant="gold">Qualidade Premium</Badge>
+        </div>
+      </div>
+      <InfiniteMovingCards items={testimonials} direction="right" speed="slow" />
     </div>
   );
 }
@@ -23,32 +28,32 @@ export function SupleVipTestimonials() {
 const testimonials = [
   {
     quote:
-      "O Whey da SupleVip mudou meu treino! Sabor incrível e zero inchaço. Senti uma melhora real na recuperação muscular.",
-    name: "Carlos Silva",
-    title: "Cliente Verificado",
+      '"Achei que meu progresso tinha estagnado. Depois de 3 semanas com a SupleVIP, <span class=\'text-yellow-400 font-bold\'>aumentei 10kg no meu agachamento</span> e sinto muito mais gás no final do treino."',
+    name: 'Andre G.',
+    title: 'Cliente Verificado',
   },
   {
     quote:
-      "Entrega super rápida e a creatina é de altíssima qualidade. A pureza é notável. Recomendo 100%!",
-    name: "Juliana Santos",
-    title: "Cliente Verificado",
+      '"Qualidade surreal! A creatina dissolve 100% e não tem gosto de nada. <span class=\'text-yellow-400 font-bold\'>Minha recuperação muscular melhorou da água para o vinho.</span> Zero arrependimento."',
+    name: 'Juliana S.',
+    title: 'Cliente Verificado',
   },
   {
     quote:
-      "Finalmente encontrei um pré-treino que dá energia sem me deixar 'elétrico' demais. A SupleVip acertou em cheio no balanceamento.",
-    name: "Ricardo Alves",
-    title: "Cliente Verificado",
+      '"Confesso que duvidei, mas os resultados são reais. <span class=\'text-yellow-400 font-bold\'>Mais força, menos fadiga e visivelmente mais volume.</span> A SupleVIP agora é item obrigatório na minha rotina."',
+    name: 'Ricardo A.',
+    title: 'Cliente Verificado',
   },
   {
     quote:
-      "O colágeno tem feito maravilhas pela minha pele e cabelo. Já estou no terceiro pote e não troco por nada!",
-    name: "Maria Oliveira",
-    title: "Cliente Verificado",
+      '"A entrega foi super rápida e o produto é de outro nível. <span class=\'text-yellow-400 font-bold\'>O laudo de pureza no site me passou muita confiança.</span> É bom saber exatamente o que estou consumindo."',
+    name: 'Fernanda C.',
+    title: 'Cliente Verificado',
   },
   {
     quote:
-      "Atendimento ao cliente nota 10! Tive uma dúvida sobre meu pedido e foram super atenciosos e rápidos em resolver.",
-    name: "Fernanda Costa",
-    title: "Cliente Verificado",
+      '"Sou Personal Trainer e sempre indico a SupleVIP para meus alunos. <span class=\'text-yellow-400 font-bold\'>A qualidade da matéria-prima é indiscutível e os resultados aparecem.</span> É o melhor custo-benefício do mercado."',
+    name: 'Lucas M.',
+    title: 'Personal Trainer',
   },
 ];

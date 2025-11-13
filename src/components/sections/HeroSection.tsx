@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/Badge";
 import { Link } from "react-router-dom";
-import backgroundImage from "@/assets/hero-bg.jpg";
+import backgroundImage from "@/assets/pote supino.webp";
 import { Zap, RefreshCw, Star } from 'lucide-react';
 
 export const HeroSection = () => {

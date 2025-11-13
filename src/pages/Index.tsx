@@ -6,6 +6,8 @@ import { BenefitsSection } from "@/components/sections/BenefitsSection";
 import { ProductShowcase } from "@/components/sections/ProductShowcase";
 import { SupleVipTestimonials } from "@/components/SupleVipTestimonials";
 import { CTASection } from "@/components/sections/CTASection";
+import { HowToTakeSection } from "@/components/sections/HowToTakeSection";
+import { QualitySection } from "@/components/sections/QualitySection";
 
 const Index = () => {
   return (
@@ -25,13 +27,13 @@ const Index = () => {
         <Header />
         <HeroSection />
         <BenefitsSection />
+        <HowToTakeSection />
         <ProductShowcase />
+        <QualitySection />
         
         {/* Social Proof Section */}
-        <section className="relative py-16 md:py-24 bg-white dark:bg-black">
-          <div className="container">
-            <SupleVipTestimonials />
-          </div>
+        <section className="relative">
+          <SupleVipTestimonials />
         </section>
 
         <CTASection />
