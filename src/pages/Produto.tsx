@@ -13,6 +13,8 @@ import ResponsiveImage from "@/components/ResponsiveImage";
 import productImage from "@/assets/creatina-product.png";
 import poteBancada from "@/assets/pote bancada.webp";
 import poteBraco from "@/assets/pote braco.webp";
+import poteMaquinas from "@/assets/pote maquinas.webp";
+import poteSupinoAberto from "@/assets/pote supino aberto.webp";
 import laudoCert from "@/assets/laudo-certificate.jpg";
 import { Helmet } from "react-helmet";
 import { useToast } from "@/hooks/use-toast";
@@ -26,7 +28,7 @@ const Produto = () => {
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
-  const images = [productImage, poteBancada, poteBraco];
+  const images = [productImage, poteBancada, poteBraco, poteMaquinas, poteSupinoAberto];
 
   const product = {
     id: "creatina-300g",
