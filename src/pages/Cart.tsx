@@ -14,10 +14,9 @@ const Cart = () => {
   const total = subtotal; // Assuming no shipping or taxes for now
 
   const handleGoToCheckout = () => {
-    // In a real scenario, this would redirect to a payment gateway.
-    // For this example, we'll just alert.
-    alert("Redirecionando para o checkout externo!");
-    // window.location.href = 'https://checkout.example.com';
+    const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    const yampiUrl = `https://suplevip.pay.yampi.com.br/r/JB5EEXMLBJ:${totalQuantity}`;
+    window.location.href = yampiUrl;
   };
 
   return (
