@@ -17,6 +17,7 @@ import Cart from "./pages/Cart";
 import Termos from "./pages/Termos";
 import Privacidade from "./pages/Privacidade";
 import Trocas from "./pages/Trocas";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
               <Route path="/termos" element={<MainLayout><Termos /></MainLayout>} />
               <Route path="/privacidade" element={<MainLayout><Privacidade /></MainLayout>} />
               <Route path="/trocas" element={<MainLayout><Trocas /></MainLayout>} />
+              <Route path="/faq" element={<MainLayout><FAQ /></MainLayout>} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
