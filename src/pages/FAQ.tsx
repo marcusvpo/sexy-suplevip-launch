@@ -67,7 +67,7 @@ const FAQ = () => {
     {
       question: "Como posso entrar em contato?",
       answer:
-        "Você pode nos contatar por email (contato@suplevip.com.br) ou WhatsApp (11) 9999-9999. Respondemos em até 24 horas úteis.",
+        "Você pode nos contatar por email (contato@suplevip.com.br) ou WhatsApp (16) 99723-9999. Respondemos em até 24 horas úteis.",
     },
   ];
 
@@ -125,7 +125,7 @@ const FAQ = () => {
                 Enviar Email
               </a>
               <a
-                href="https://wa.me/5511999999999"
+                href="https://wa.me/5516997239999"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-semibold hover:bg-secondary/90 transition-colors"
