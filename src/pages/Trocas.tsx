@@ -43,7 +43,7 @@ const Trocas = () => {
                   <br />
                   Email: <strong>contato@suplevip.com.br</strong>
                   <br />
-                  WhatsApp: <strong>(11) 9999-9999</strong>
+                  WhatsApp: <strong>(16) 99723-9999</strong>
                 </li>
                 <li>Informe o número do pedido e o motivo da devolução.</li>
                 <li>Enviaremos as instruções para envio do produto de volta.</li>
@@ -94,7 +94,7 @@ const Trocas = () => {
                 <br />
                 Email: <strong>contato@suplevip.com.br</strong>
                 <br />
-                WhatsApp: <strong>(11) 9999-9999</strong>
+                WhatsApp: <strong>(16) 99723-9999</strong>
               </p>
             </section>
           </div>

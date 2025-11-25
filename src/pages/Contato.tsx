@@ -62,8 +62,8 @@ const Contato = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-3">Telefone</h3>
                 <p className="text-muted-foreground mb-2">Seg - Sex: 9h às 18h</p>
-                <a href="tel:+551140028922" className="text-primary hover:text-gold-glow font-semibold transition-all">
-                  (11) 4002-8922
+                <a href="tel:+5516997239999" className="text-primary hover:text-gold-glow font-semibold transition-all">
+                  (16) 99723-9999
                 </a>
               </div>
 
@@ -73,8 +73,8 @@ const Contato = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-3">WhatsApp</h3>
                 <p className="text-muted-foreground mb-2">Atendimento rápido</p>
-                <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-gold-glow font-semibold transition-all">
-                  (11) 99999-9999
+                <a href="https://wa.me/5516997239999" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-gold-glow font-semibold transition-all">
+                  (16) 99723-9999
                 </a>
               </div>
 
@@ -181,7 +181,7 @@ const Contato = () => {
               <div className="inline-flex items-center gap-3 text-muted-foreground">
                 <MapPin className="w-5 h-5 text-primary" />
                 <p>
-                  São Paulo, SP - Brasil
+                  Av Ricarte Soares Silva, 1191 - Franca - SP CEP 14409-648
                 </p>
               </div>
             </div>

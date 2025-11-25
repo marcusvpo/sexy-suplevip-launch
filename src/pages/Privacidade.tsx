@@ -97,7 +97,7 @@ const Privacidade = () => {
                 <br />
                 Email: contato@suplevip.com.br
                 <br />
-                Telefone: (11) 9999-9999
+                Telefone: (16) 99723-9999
               </p>
             </section>
           </div>

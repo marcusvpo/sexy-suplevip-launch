@@ -72,7 +72,7 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary" />
-                <span>(11) 9999-9999</span>
+                <span>(16) 99723-9999</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary" />
@@ -80,14 +80,14 @@ export const Footer = () => {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-primary mt-0.5" />
-                <span>São Paulo, SP - Brasil</span>
+                <span>Av Ricarte Soares Silva, 1191 - Franca - SP CEP 14409-648</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-border/40 mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>© 2025 SupleVip. Todos os direitos reservados. CNPJ: XX.XXX.XXX/0001-XX</p>
+          <p>© 2025 SupleVip - Farmacia Lider Franca Ltda. Todos os direitos reservados. CNPJ: 40.998.490/0001-81</p>
           <p className="mt-2 text-xs">
             Este produto não substitui orientação médica profissional. Consulte um nutricionista ou médico antes de iniciar qualquer suplementação.
           </p>
